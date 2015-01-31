@@ -45,6 +45,13 @@ public class BoardTest {
         stepAndAssertGameOver(new Coordinates(3, 3), true);
     }
     
+    @Test
+    public void shouldGameOverWithSameDiagonalBackwards() {
+        stepAndAssertGameOver(new Coordinates(1, 3), false);
+        stepAndAssertGameOver(new Coordinates(2, 2), false);
+        stepAndAssertGameOver(new Coordinates(3, 1), true);
+    }
+    
     private void stepAndAssertGameOver(
             Coordinates coordinates, 
             boolean shouldGameOver) {

@@ -38,9 +38,14 @@ public class Board {
 
         checkGameOver();
     }
+    
+    public boolean isGameOver() {
+        return gameOver;
+    }
 
     private void checkGameOver() {
-        gameOver = hasSameRow() || hasSameColumn() || hasSameDiagonal();
+        gameOver = hasSameRow() || hasSameColumn() || hasSameDiagonal() ||
+                hasSameDiagonalBackwards();
 //        System.out.println("gameOver: " + gameOver);
     }
 
@@ -94,13 +99,45 @@ public class Board {
         }
         return same;
     }
-    
+
     private boolean hasSameDiagonal() {
-        // TODO: Implement the diagonal pattern check!
-        return false;
+
+        boolean same = true;
+
+        char lastTile = INVALID_SIGN;
+        for (int i = 0, j = 0; i < tiles.length && j < tiles[0].length; i++, j++) {
+            char tile = tiles[i][j];
+            if (lastTile == INVALID_SIGN) {
+                lastTile = tile;
+            } else {
+                if (lastTile == NO_SIGN || lastTile != tile) {
+                    same = false;
+                    break;
+                }
+            }
+        }
+
+        return same;
     }
 
-    public boolean isGameOver() {
-        return gameOver;
+    private boolean hasSameDiagonalBackwards() {
+       
+        boolean same = true;
+
+        char lastTile = INVALID_SIGN;
+        for (int i = tiles.length-1, j = 0; i > 0 && j < tiles[0].length; i--, j++) {
+            char tile = tiles[i][j];
+            System.out.println("i: " + i + ", j: " + j + ", tile: " + tile);
+            if (lastTile == INVALID_SIGN) {
+                lastTile = tile;
+            } else {
+                if (lastTile == NO_SIGN || lastTile != tile) {
+                    same = false;
+                    break;
+                }
+            }
+        }
+
+        return same;
     }
 }

@@ -19,14 +19,17 @@ public class Game {
         Player activeUser = Player.X;
         do {
             System.out.println();
-            
+
             ui.showBoard(board);
-            
+
             activeUser = activeUser == Player.X ? Player.O : Player.X;
             System.out.println("Játékos: " + activeUser);
             Coordinates coordinates = ui.userStep();
             board.step(coordinates, activeUser);
         } while (!board.isGameOver());
+
+        System.out.println();
+        ui.showBoard(board);
 
         System.out.println("A nyertes: " + activeUser);
     }

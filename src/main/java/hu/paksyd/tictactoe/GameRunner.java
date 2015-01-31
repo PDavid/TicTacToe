@@ -24,16 +24,16 @@ public class GameRunner {
 
         ui.showBoard(game);
 
-        ui.showWinner(game.getActiveUser());
+        ui.showWinner(game.getActivePlayer());
     }
 
     private void switchPlayer() {
         game.switchPlayer();
-        ui.showActivePlayer(game.getActiveUser());
+        ui.showActivePlayer(game.getActivePlayer());
     }
 
     private void playerStep() {
-        Coordinate coordinates = ui.userStep();
+        Coordinate coordinates = ui.playerStep(game);
         game.step(coordinates);
     }
 

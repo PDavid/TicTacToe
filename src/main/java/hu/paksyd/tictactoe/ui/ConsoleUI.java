@@ -35,14 +35,22 @@ public class ConsoleUI implements UI {
     }
 
     @Override
-    public Coordinate userStep() {
-        int row = readInt("Add meg a sort (1-3)!");
-        int column = readInt("Add meg az oszlopot (1-3)!");
-        return new Coordinate(row, column);
+    public Coordinate playerStep(Game game) {
+        boolean canStepOnTile = true;
+        Coordinate chosenCoordinate;
+        do {
+            if (!canStepOnTile) {
+                System.out.println("Ide már nem lehet lépni. Próbáld újra!");
+            }
+            int row = readInt("Add meg a sort (1-3)!");
+            int column = readInt("Add meg az oszlopot (1-3)!");
+            chosenCoordinate = new Coordinate(row, column);
+            canStepOnTile = game.canStepOnTile(chosenCoordinate);
+        } while (!canStepOnTile);
+        return chosenCoordinate;
     }
 
     private int readInt(String message) {
-        // TODO: The player should not be able to override any tile!
         final int min = 1;
         final int max = 3;
         int number = -1;

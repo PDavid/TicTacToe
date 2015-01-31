@@ -4,12 +4,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class GameTest {
+public class GameWinningTest {
 
     private Game game;
-
-    public GameTest() {
-    }
 
     @Before
     public void setUp() {
@@ -17,12 +14,12 @@ public class GameTest {
     }
 
     @Test
-    public void shouldNotGameOverWhenEmpty() {
+    public void shouldNotWinWhenEmpty() {
         Assert.assertFalse(game.isGameOver());
     }
 
     @Test
-    public void shouldNotGameOver() {
+    public void shouldNotWin() {
 //        +X+ + +
 //        + + +X+
 //        + +X+ +
@@ -34,7 +31,7 @@ public class GameTest {
     }
 
     @Test
-    public void shouldGameOverWithSameRow() {
+    public void shouldWinWithSameRow() {
 //        +X+X+X+
 //        + + + +
 //        + + + +
@@ -46,7 +43,7 @@ public class GameTest {
     }
     
     @Test
-    public void shouldGameOverWithSameRow2() {
+    public void shouldWinWithSameRow2() {
 //        + + + +
 //        +X+X+X+
 //        + + + +
@@ -58,7 +55,7 @@ public class GameTest {
     }
     
     @Test
-    public void shouldGameOverWithSameRow3() {
+    public void shouldWinWithSameRow3() {
 //        + + + +
 //        + + + +
 //        +X+X+X+
@@ -70,7 +67,7 @@ public class GameTest {
     }
 
     @Test
-    public void shouldGameOverWithSameColumn() {
+    public void shouldWinWithSameColumn() {
 //        +X+ + +
 //        +X+ + +
 //        +X+ + +
@@ -82,7 +79,7 @@ public class GameTest {
     }
     
     @Test
-    public void shouldGameOverWithSameColumn2() {
+    public void shouldWinWithSameColumn2() {
 //        + +X+ +
 //        + +X+ +
 //        + +X+ +
@@ -94,7 +91,7 @@ public class GameTest {
     }
     
      @Test
-    public void shouldGameOverWithSameColumn3() {
+    public void shouldWinWithSameColumn3() {
 //        + + +X+
 //        + + +X+
 //        + + +X+
@@ -106,7 +103,7 @@ public class GameTest {
     }
 
     @Test
-    public void shouldGameOverWithSameDiagonal() {
+    public void shouldWinWithSameDiagonal() {
 //        +X+ + +
 //        + +X+ +
 //        + + +X+
@@ -118,7 +115,7 @@ public class GameTest {
     }
 
     @Test
-    public void shouldGameOverWithSameDiagonalBackwards() {
+    public void shouldWinWithSameDiagonalBackwards() {
 //        + + +X+
 //        + +X+ +
 //        +X+ + +

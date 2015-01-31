@@ -7,7 +7,7 @@ public class Game {
 
     private final char[][] tiles;
     private boolean gameOver;
-    private Player activeUser;
+    private Player activePlayer;
 
     public Game() {
         tiles = new char[3][3];
@@ -16,7 +16,7 @@ public class Game {
                 row[j] = NO_SIGN;
             }
         }
-        this.activeUser = Player.X;
+        this.activePlayer = Player.X;
     }
 
     @Override
@@ -32,17 +32,28 @@ public class Game {
         return textTable.toString();
     }
 
-    public void step(Coordinate coordinates) {
-        int rowIndex = coordinates.getRow() - 1;
-        int columnIndex = coordinates.getColumn() - 1;
+    public void step(Coordinate coordinate) {
+        int rowIndex = coordinate.getRow() - 1;
+        int columnIndex = coordinate.getColumn() - 1;
 
-        tiles[rowIndex][columnIndex] = activeUser.getCode();
+        tiles[rowIndex][columnIndex] = activePlayer.getCode();
 
         checkGameOver();
     }
     
     public void switchPlayer() {
-        activeUser = activeUser == Player.X ? Player.O : Player.X;
+        activePlayer = activePlayer == Player.X ? Player.O : Player.X;
+    }
+    
+    private boolean isTileEmpty(Coordinate coordinate) {
+        int rowIndex = coordinate.getRow() - 1;
+        int columnIndex = coordinate.getColumn() - 1;
+        char tile = tiles[rowIndex][columnIndex];
+        return tile == NO_SIGN;
+    }
+    
+    public boolean canStepOnTile(Coordinate coordinate) {
+        return isTileEmpty(coordinate);
     }
 
     public boolean isGameOver() {
@@ -140,7 +151,7 @@ public class Game {
         return true;
     }
 
-    public Player getActiveUser() {
-        return activeUser;
+    public Player getActivePlayer() {
+        return activePlayer;
     }
 }

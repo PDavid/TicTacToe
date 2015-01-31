@@ -8,6 +8,6 @@ public interface UI {
     void showGameTitle();
     void showBoard(Game game);
     void showActivePlayer(Player player);
-    Coordinate userStep();
+    Coordinate playerStep(Game game);
     void showWinner(Player player);
 }

@@ -1,7 +1,7 @@
 package hu.paksyd.tictactoe.ui;
 
 import hu.paksyd.tictactoe.Game;
-import hu.paksyd.tictactoe.Coordinates;
+import hu.paksyd.tictactoe.Coordinate;
 import hu.paksyd.tictactoe.Player;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,10 +35,10 @@ public class ConsoleUI implements UI {
     }
 
     @Override
-    public Coordinates userStep() {
+    public Coordinate userStep() {
         int row = readInt("Add meg a sort (1-3)!");
         int column = readInt("Add meg az oszlopot (1-3)!");
-        return new Coordinates(row, column);
+        return new Coordinate(row, column);
     }
 
     private int readInt(String message) {

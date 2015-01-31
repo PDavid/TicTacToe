@@ -26,9 +26,9 @@ public class GameTest {
 //        +X+ + +
 //        + + +X+
 //        + +X+ +
-        step(new Coordinates(1, 1));
-        step(new Coordinates(3, 2));
-        step(new Coordinates(2, 3));
+        step(new Coordinate(1, 1));
+        step(new Coordinate(3, 2));
+        step(new Coordinate(2, 3));
 
         Assert.assertFalse(game.isGameOver());
     }
@@ -38,9 +38,9 @@ public class GameTest {
 //        +X+X+X+
 //        + + + +
 //        + + + +
-        step(new Coordinates(1, 1));
-        step(new Coordinates(1, 2));
-        step(new Coordinates(1, 3));
+        step(new Coordinate(1, 1));
+        step(new Coordinate(1, 2));
+        step(new Coordinate(1, 3));
 
         Assert.assertTrue(game.isGameOver());
     }
@@ -50,9 +50,9 @@ public class GameTest {
 //        + + + +
 //        +X+X+X+
 //        + + + +
-        step(new Coordinates(2, 1));
-        step(new Coordinates(2, 2));
-        step(new Coordinates(2, 3));
+        step(new Coordinate(2, 1));
+        step(new Coordinate(2, 2));
+        step(new Coordinate(2, 3));
 
         Assert.assertTrue(game.isGameOver());
     }
@@ -62,9 +62,9 @@ public class GameTest {
 //        + + + +
 //        + + + +
 //        +X+X+X+
-        step(new Coordinates(3, 1));
-        step(new Coordinates(3, 2));
-        step(new Coordinates(3, 3));
+        step(new Coordinate(3, 1));
+        step(new Coordinate(3, 2));
+        step(new Coordinate(3, 3));
 
         Assert.assertTrue(game.isGameOver());
     }
@@ -74,9 +74,9 @@ public class GameTest {
 //        +X+ + +
 //        +X+ + +
 //        +X+ + +
-        step(new Coordinates(1, 1));
-        step(new Coordinates(2, 1));
-        step(new Coordinates(3, 1));
+        step(new Coordinate(1, 1));
+        step(new Coordinate(2, 1));
+        step(new Coordinate(3, 1));
 
         Assert.assertTrue(game.isGameOver());
     }
@@ -86,9 +86,9 @@ public class GameTest {
 //        + +X+ +
 //        + +X+ +
 //        + +X+ +
-        step(new Coordinates(1, 2));
-        step(new Coordinates(2, 2));
-        step(new Coordinates(3, 2));
+        step(new Coordinate(1, 2));
+        step(new Coordinate(2, 2));
+        step(new Coordinate(3, 2));
 
         Assert.assertTrue(game.isGameOver());
     }
@@ -98,9 +98,9 @@ public class GameTest {
 //        + + +X+
 //        + + +X+
 //        + + +X+
-        step(new Coordinates(1, 3));
-        step(new Coordinates(2, 3));
-        step(new Coordinates(3, 3));
+        step(new Coordinate(1, 3));
+        step(new Coordinate(2, 3));
+        step(new Coordinate(3, 3));
 
         Assert.assertTrue(game.isGameOver());
     }
@@ -110,9 +110,9 @@ public class GameTest {
 //        +X+ + +
 //        + +X+ +
 //        + + +X+
-        step(new Coordinates(1, 1));
-        step(new Coordinates(2, 2));
-        step(new Coordinates(3, 3));
+        step(new Coordinate(1, 1));
+        step(new Coordinate(2, 2));
+        step(new Coordinate(3, 3));
 
         Assert.assertTrue(game.isGameOver());
     }
@@ -122,14 +122,14 @@ public class GameTest {
 //        + + +X+
 //        + +X+ +
 //        +X+ + +
-        step(new Coordinates(1, 3));
-        step(new Coordinates(2, 2));
-        step(new Coordinates(3, 1));
+        step(new Coordinate(1, 3));
+        step(new Coordinate(2, 2));
+        step(new Coordinate(3, 1));
 
         Assert.assertTrue(game.isGameOver());
     }
 
-    private void step(Coordinates coordinates) {
+    private void step(Coordinate coordinates) {
         game.step(coordinates);
     }
 }

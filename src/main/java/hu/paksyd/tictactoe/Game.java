@@ -32,7 +32,7 @@ public class Game {
         return textTable.toString();
     }
 
-    public void step(Coordinates coordinates) {
+    public void step(Coordinate coordinates) {
         int rowIndex = coordinates.getRow() - 1;
         int columnIndex = coordinates.getColumn() - 1;
 

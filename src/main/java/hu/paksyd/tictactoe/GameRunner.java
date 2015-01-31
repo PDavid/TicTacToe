@@ -33,7 +33,7 @@ public class GameRunner {
     }
 
     private void playerStep() {
-        Coordinates coordinates = ui.userStep();
+        Coordinate coordinates = ui.userStep();
         game.step(coordinates);
     }
 

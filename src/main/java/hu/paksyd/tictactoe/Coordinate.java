@@ -1,11 +1,11 @@
 package hu.paksyd.tictactoe;
 
-public class Coordinates {
+public class Coordinate {
 
     private final int row;
     private final int column;
 
-    public Coordinates(int row, int column) {
+    public Coordinate(int row, int column) {
         this.row = row;
         this.column = column;
     }

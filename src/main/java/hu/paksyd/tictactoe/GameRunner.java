@@ -7,48 +7,34 @@ public class GameRunner {
 
     private final Game game;
     private final UI ui;
-    private Player activeUser;
-
-    private final String asciiArt
-            = "  _______         ______              ______         \n"
-            + " /_  __(_)____   /_  __/___ ______   /_  __/___  ___ \n"
-            + "  / / / / ___/    / / / __ `/ ___/    / / / __ \\/ _ \\ \n"
-            + " / / / / /__     / / / /_/ / /__     / / / /_/ /  __/ \n"
-            + "/_/ /_/\\___/    /_/  \\__,_/\\___/    /_/  \\____/\\___/ ";
 
     public GameRunner(UI ui) {
         this.game = new Game();
         this.ui = ui;
-        this.activeUser = Player.X;
     }
 
     public void start() {
-        System.out.println(asciiArt);
+        ui.showGameTitle();
 
         do {
-            showBoard();
+            ui.showBoard(game);
             switchPlayer();
             playerStep();
         } while (!game.isGameOver());
 
-        showBoard();
-
-        System.out.println("A nyertes: " + activeUser);
-    }
-
-    private void showBoard() {
-        System.out.println();
         ui.showBoard(game);
+
+        ui.showWinner(game.getActiveUser());
     }
 
     private void switchPlayer() {
-        activeUser = activeUser == Player.X ? Player.O : Player.X;
-        System.out.println("Játékos: " + activeUser);
+        game.switchPlayer();
+        ui.showActivePlayer(game.getActiveUser());
     }
 
     private void playerStep() {
         Coordinates coordinates = ui.userStep();
-        game.step(coordinates, activeUser);
+        game.step(coordinates);
     }
 
     public static void main(String[] args) {

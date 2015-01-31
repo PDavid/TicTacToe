@@ -7,6 +7,7 @@ public class Game {
 
     private final char[][] tiles;
     private boolean gameOver;
+    private Player activeUser;
 
     public Game() {
         tiles = new char[3][3];
@@ -15,6 +16,7 @@ public class Game {
                 row[j] = NO_SIGN;
             }
         }
+        this.activeUser = Player.X;
     }
 
     @Override
@@ -30,13 +32,17 @@ public class Game {
         return textTable.toString();
     }
 
-    public void step(Coordinates coordinates, Player user) {
+    public void step(Coordinates coordinates) {
         int rowIndex = coordinates.getRow() - 1;
         int columnIndex = coordinates.getColumn() - 1;
 
-        tiles[rowIndex][columnIndex] = user.getCode();
+        tiles[rowIndex][columnIndex] = activeUser.getCode();
 
         checkGameOver();
+    }
+    
+    public void switchPlayer() {
+        activeUser = activeUser == Player.X ? Player.O : Player.X;
     }
 
     public boolean isGameOver() {
@@ -44,6 +50,7 @@ public class Game {
     }
 
     private void checkGameOver() {
+        // TODO: Should check if nobody can win anymore!
         gameOver = hasSameRow() || hasSameColumn() || hasSameDiagonal()
                 || hasSameDiagonalBackwards();
     }
@@ -131,5 +138,9 @@ public class Game {
         }
 
         return true;
+    }
+
+    public Player getActiveUser() {
+        return activeUser;
     }
 }

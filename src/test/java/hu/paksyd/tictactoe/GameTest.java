@@ -7,7 +7,6 @@ import org.junit.Test;
 public class GameTest {
 
     private Game game;
-    private final Player activeUser = Player.X;
 
     public GameTest() {
     }
@@ -131,6 +130,6 @@ public class GameTest {
     }
 
     private void step(Coordinates coordinates) {
-        game.step(coordinates, activeUser);
+        game.step(coordinates);
     }
 }

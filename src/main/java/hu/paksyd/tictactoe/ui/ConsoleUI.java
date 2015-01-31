@@ -1,6 +1,6 @@
 package hu.paksyd.tictactoe.ui;
 
-import hu.paksyd.tictactoe.Board;
+import hu.paksyd.tictactoe.Game;
 import hu.paksyd.tictactoe.Coordinates;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,10 +9,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ConsoleUI implements UI {
-
+    
     @Override
-    public void showBoard(Board board) {
-        System.out.println(board.toString());
+    public void showBoard(Game game) {
+        System.out.println(game.toString());
     }
 
     @Override

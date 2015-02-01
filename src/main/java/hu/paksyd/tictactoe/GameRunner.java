@@ -23,8 +23,11 @@ public class GameRunner {
         } while (!game.isGameOver());
 
         ui.showBoard(game);
-
-        ui.showWinner(game.getActivePlayer());
+        if (game.isActivePlayerWon()) {
+            ui.showWinner(game.getActivePlayer());
+        } else {
+            ui.showNoWinner();
+        }
     }
 
     private void switchPlayer() {

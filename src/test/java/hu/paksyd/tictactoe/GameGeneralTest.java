@@ -26,4 +26,38 @@ public class GameGeneralTest {
         game.step(coorddinate);
         Assert.assertFalse(game.canStepOnTile(coorddinate));
     }
+    
+    @Test
+    public void boardShouldNotBeFullWithEmptyBoard() {
+        Assert.assertFalse(game.isBoardFull());
+    }
+    
+    @Test
+    public void boardShouldNotBeFull() {
+//        +X+ + +
+//        + + +X+
+//        + +X+ +
+        game.step(new Coordinate(1, 1));
+        game.step(new Coordinate(3, 2));
+        game.step(new Coordinate(2, 3));
+
+        Assert.assertFalse(game.isBoardFull());
+    }
+    
+     @Test
+    public void boardShouldBeFull() {
+        game.step(new Coordinate(1, 1));
+        game.step(new Coordinate(1, 2));
+        game.step(new Coordinate(1, 3));
+        
+        game.step(new Coordinate(2, 1));
+        game.step(new Coordinate(2, 2));
+        game.step(new Coordinate(2, 3));
+        
+        game.step(new Coordinate(3, 1));
+        game.step(new Coordinate(3, 2));
+        game.step(new Coordinate(3, 3));
+
+        Assert.assertTrue("The board should be full.", game.isBoardFull());
+    }
 }

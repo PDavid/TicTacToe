@@ -10,4 +10,5 @@ public interface UI {
     void showActivePlayer(Player player);
     Coordinate playerStep(Game game);
     void showWinner(Player player);
+    void showNoWinner();
 }

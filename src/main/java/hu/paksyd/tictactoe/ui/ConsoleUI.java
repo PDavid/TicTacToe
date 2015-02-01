@@ -78,6 +78,11 @@ public class ConsoleUI implements UI {
 
     @Override
     public void showWinner(Player player) {
-        System.out.println("A nyertes: " + player);
+        System.out.println("A játéknak vége. \nA nyertes: " + player);
+    }
+
+    @Override
+    public void showNoWinner() {
+        System.out.println("A játéknak vége. \nNincs nyertes.");
     }
 }

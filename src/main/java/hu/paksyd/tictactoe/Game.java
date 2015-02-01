@@ -7,6 +7,7 @@ public class Game {
 
     private final char[][] tiles;
     private boolean gameOver;
+    private boolean activePlayerWon;
     private Player activePlayer;
 
     public Game() {
@@ -61,9 +62,25 @@ public class Game {
     }
 
     private void checkGameOver() {
-        // TODO: Should check if nobody can win anymore!
-        gameOver = hasSameRow() || hasSameColumn() || hasSameDiagonal()
+        activePlayerWon = isActualPlayerWon();
+        gameOver = activePlayerWon || isBoardFull();
+    }
+    
+    private boolean isActualPlayerWon() {
+        return hasSameRow() || hasSameColumn() || hasSameDiagonal()
                 || hasSameDiagonalBackwards();
+    }
+    
+    public boolean isBoardFull() {
+        for (char[] row : tiles) {
+            for (char tile : row) {
+                if (tile == NO_SIGN) {
+                    return false;
+                }
+            }
+        }
+        
+        return true;
     }
 
     private boolean hasSameRow() {
@@ -153,5 +170,9 @@ public class Game {
 
     public Player getActivePlayer() {
         return activePlayer;
+    }
+
+    public boolean isActivePlayerWon() {
+        return activePlayerWon;
     }
 }
